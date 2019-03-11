@@ -105,3 +105,9 @@ Setup Aurora as scatefs client. See the installation guide for details.
 ### aurora-musl.yaml
 
 Installs packages to support musl.
+
+## References
+
+- [VEOS yum Repository on the Web](https://sx-aurora.github.io/posts/VEOS-yum-repository/)
+- [VEOS 2.0.1 glibc Update](https://sx-aurora.github.io/posts/VEOS-2.0.1-update/)
+
