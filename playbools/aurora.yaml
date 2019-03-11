@@ -1,8 +1,6 @@
 - hosts: all
   roles:
         - repo-yum-vault-7.5
-        - ethernet
-        - hostname
         - repo-TSUBASA-local
         - repo-CentOS-Base-disable
         - kernel-3.10.0-862.14.4

@@ -5,7 +5,7 @@ repository on sx-aurora.com.
 
 ## Prerequisites
 
-- CentOS 7.5 is installed to the Aurora you are setting up.
+- CentOS 7.5 is installed into the Aurora you are setting up.
 - The Aurora can access the internet. 
 
 ## Instructions
@@ -45,13 +45,14 @@ The sample playbooks are located in `playbooks` directory.
 - aurora-sdk.yaml: Install tuning tool, nlc and SDK.
 - aurora-ib.yaml: Setup Infiniband .
 - aurora-scatefs.yaml: Setup scatefs. It reuiqres IB.
+- aurora-musl.yaml: Setup musl environment.
 
 ### aurora-sdk.yaml
 
 Before using this playbook, you have to download RPM files for SDK. Please
 refere [the installation
 guide](https://www.hpc.nec/documents/guide/#idm139944214657512) and download
-required files and list them under `vars:`.  And you also have to lines for
+required files and list them under `vars:`.  You also have to have lines for
 license server.
 
 ```
