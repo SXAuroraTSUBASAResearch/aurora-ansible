@@ -1,0 +1,76 @@
+- name: install required packages
+  environment: "{{ proxy_env }}"
+  yum:
+        name:
+                - NetworkManager-glib
+        state: present
+        disablerepo: "*"
+        enablerepo: "C7.5*"
+
+- name: nmcli connection add type bond con-name bond0 ifname bond0 mode active-backup
+  nmcli:
+        type: bond
+        conn_name: bond0
+        ifname: bond0
+        mode: active-backup
+        state: present
+
+# https://github.com/ansible/ansible/issues/36615
+#- name: nmcli connection mod bond0 ipv4.method disabled ipv6.method ignore
+#  nmcli:
+#        type: bond
+#        conn_name: bond0
+#        ip4: disabled
+#        ip6: ignore
+#        state: present
+
+- name: nmcli connection mod bond0 ipv4.method disabled ipv6.method ignore
+  command: nmcli connection mod bond0 ipv4.method disabled ipv6.method ignore
+
+#- name: nmcli connection add type infiniband autoconnect yes ifname ib0 master bond0
+#  nmcli:
+#        type: infiniband
+#        autoconnect: yes
+#        ifname: ib0
+#        master: bond0
+#        state: present
+#
+#- name: nmcli connection add type infiniband autoconnect yes ifname ib1 master bond0
+#  nmcli:
+#        type: infiniband
+#        autoconnect: yes
+#        ifname: ib1
+#        master: bond0
+#        state: present
+
+- name: nmcli connection add type infiniband autoconnect yes ifname ib0 master bond0
+  command: nmcli connection add type infiniband autoconnect yes ifname ib0 master bond0
+
+- name: nmcli connection add type infiniband autoconnect yes ifname ib1 master bond0
+  command: nmcli connection add type infiniband autoconnect yes ifname ib1 master bond0
+
+- name: nmcli connection mod bond0 +bond.options primary=ib0
+  nmcli:
+        type: bond
+        conn_name: bond0
+        primary: ib0
+        state: present
+
+- name: nmcli connection mod bond0 +bond.options miimon=100,updelay=100,downdelay=100
+  nmcli:
+        type: bond
+        conn_name: bond0
+        miimon: 100
+        updelay: 100
+        downdelay: 100
+        state: present
+
+#- name: nmcli connection mod bond0 ipv4.method manual ipv4.address “XX.XX.XX.XX/YY”
+#  nmcli:
+#        type: bond
+#        conn_name: bond0
+#        ip4: "{{ ib_addr }}"
+#        state: present
+
+- name: nmcli connection mod bond0 ipv4.method manual ipv4.address
+  command: nmcli connection mod bond0 ipv4.method manual ipv4.address {{ bond0_addr }}

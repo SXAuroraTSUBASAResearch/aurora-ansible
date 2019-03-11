@@ -1,0 +1,42 @@
+- name: install required packages
+  environment: "{{ proxy_env }}"
+  yum:
+        name: 
+                - "@scatefs-client-tsubasa"
+        state: present
+        disablerepo: "*"
+        enablerepo: "TSUBASA-local"
+
+- name: modprobe scatefs-verbs
+  modprobe:
+        name: scatefs-verbs
+        state: present
+
+- name: modprobe scatefs-fs
+  modprobe:
+        name: scatefs-fs
+        state: present
+
+- name:  /etc/scatefs/client/ibdevice.conf
+  lineinfile:
+        path: /etc/scatefs/client/ibdevice.conf
+        regexp: "{{ item['label'] }} .*"
+        line: "{{ item['label'] }} {{ item['pci_id'] }}"
+        create: true
+        state: present
+  loop: "{{ scatefs['ibdevice'] }}"
+
+- name: create mount points
+  file:
+        path: "{{ item['path'] }}"
+        state: directory
+  loop: "{{ scatefs['mount'] }}"
+
+- name: add lines to fstab
+  mount:
+        src: "{{ item['src'] }}"
+        fstype: scatefs
+        path: "{{ item['path'] }}"
+        opts: "{{ item['opts'] }}"
+        state: mounted
+  loop: "{{ scatefs['mount'] }}"

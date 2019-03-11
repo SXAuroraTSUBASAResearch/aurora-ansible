@@ -1,0 +1,13 @@
+- name: install veos-musl
+  environment: "{{ proxy_env }}"
+  yum:
+        name:
+                - musl-libc-ve
+                - libsysve-musl
+                - musl-libc-ve
+                - musl-libc-ve-devel 
+                - libsysve-musl 
+                - libsysve-musl-devel 
+                - veos-musl-headers
+        disablerepo: "*"
+        enablerepo: "veos*,C7.5*"

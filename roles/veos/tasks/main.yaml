@@ -1,0 +1,12 @@
+- name: install veos
+  environment: "{{ proxy_env }}"
+  yum:
+        name:
+                - "@veos-apprun"
+                - "@veos-appdev"
+                - "@mmm"
+                - "vmcfw"
+                - "binutils-ve"
+        disablerepo: "*"
+        enablerepo: "veos*,C7.5*"
+

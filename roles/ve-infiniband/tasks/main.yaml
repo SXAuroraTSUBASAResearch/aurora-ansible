@@ -1,0 +1,12 @@
+- name: install ve-infiniband
+  environment: "{{ proxy_env }}"
+  yum:
+        name:
+                - "@ve-infiniband"
+        disablerepo: "*"
+        enablerepo: "veos*,C7.5*"
+
+- name: enable vemmd
+  systemd:
+        name: vemmd
+        enabled: 1

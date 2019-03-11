@@ -1,0 +1,10 @@
+- name: disble CentOS-Base.repo
+  ini_file:
+        dest: /etc/yum.repos.d/CentOS-Base.repo
+        section: "{{ item }}"
+        option: enabled
+        value: 0
+  with_items:
+        - base
+        - updates
+        - extras

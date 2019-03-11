@@ -1,0 +1,9 @@
+- name: install ve-infiniband-musl
+  environment: "{{ proxy_env }}"
+  yum:
+        name:
+                - libibverbs-ve-musl
+                - libmlx5-ve-musl
+                - libvedma-ve-musl
+        disablerepo: "*"
+        enablerepo: "veos*,C7.5*"

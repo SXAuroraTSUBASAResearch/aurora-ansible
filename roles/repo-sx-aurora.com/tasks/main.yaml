@@ -1,0 +1,27 @@
+- name: import vesw.public.key
+  environment: "{{ proxy_env }}"
+  rpm_key:
+        state: present
+        key: https://sx-aurora.com/repos/vesw.public.key
+
+- name: import RPM-GPG-KEY-TSUBASA-sort
+  environment: "{{ proxy_env }}"
+  rpm_key:
+        state: present
+        key: https://sx-aurora.com/repos/RPM-GPG-KEY-TSUBASA-soft
+
+- name: veos-common.repo
+  yum_repository:
+        name: veos-common
+        description: Aurora VEOS Common
+        baseurl: https://sx-aurora.com/repos/veos/common
+        gpgcheck: 1
+        enabled: 1
+
+- name: veos-rhel7.repo
+  yum_repository:
+        name: veos-rhel7
+        description: Aurora VEOS RHEL Specific
+        baseurl: https://sx-aurora.com/repos/veos/RHEL7.5
+        gpgcheck: 1
+        enabled: 1

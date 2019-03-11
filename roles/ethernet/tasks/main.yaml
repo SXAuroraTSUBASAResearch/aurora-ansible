@@ -1,0 +1,30 @@
+- name: install required packages
+  environment: "{{ proxy_env }}"
+  yum:
+        name:
+                - NetworkManager-glib
+        state: present
+        disablerepo: "*"
+        enablerepo: "C7.5*"
+
+- name: configure connection
+  nmcli:
+        type: ethernet
+        conn_name: "{{ item.key }}"
+        ifname: "{{ item.key }}"
+        ip4: "{{ item.value }}"
+        state: present
+  with_dict: "{{ ethernet }}"
+  register: result
+
+- name: set ipv4.method to manual
+  command: nmcli c mod '{{ item.key }}' ipv4.method manual
+  with_dict: "{{ ethernet }}"
+
+- name: restart network
+  systemd:
+        name: network
+        state: restarted
+  when: result is changed
+
+

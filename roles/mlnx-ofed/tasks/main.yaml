@@ -1,0 +1,40 @@
+- name: install required packages
+  environment: "{{ proxy_env }}"
+  yum: 
+        name:
+                - perl
+                - pciutils
+                - python
+                - gcc-gfortran
+                - libxml2-python
+                - tcsh
+                - libnl.i686
+                - libnl
+                - expat
+                - glib2
+                - tcl
+                - libstdc++
+                - bc
+                - tk
+                - gtk2
+                - atk
+                - cairo
+                - numactl
+                - pkgconfig
+                - ethtool
+                - lsof
+                - kernel-devel-3.10.0-862.14.4.el7.x86_64
+                - python-devel
+                - createrepo
+        state: present
+        disablerepo: "*"
+        enablerepo: "C7.5*"
+
+- name: check if already installed
+  command: "/usr/bin/ibv_devices | grep mlx5"
+  register: result
+  ignore_errors: True
+  changed_when: result is failed
+
+- import_tasks: install.yaml
+  when: result is failed

@@ -1,0 +1,5 @@
+- hosts: all
+  roles:
+        - mlnx-ofed
+        - ve-infiniband
+        - ib

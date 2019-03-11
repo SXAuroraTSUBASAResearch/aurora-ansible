@@ -1,0 +1,30 @@
+- name: install tuningtool and nlc
+  environment: "{{ proxy_env }}"
+  yum:
+        name:
+                - "@nec-tuningtool"
+                - "@nec-nlc-1.0.0"
+        disablerepo: "*"
+        enablerepo: "TSUBASA-local,C7.5*"
+
+- name: copy SDK rpm files
+  copy:
+        src: "{{ item }}"
+        dest: /tmp
+  loop: "{{ sdk }}"
+  
+
+- name: install SDK
+  environment: "{{ proxy_env }}"
+  yum:
+        name: "/tmp/{{ item | basename}}"
+        state: present
+        disablerepo: "*"
+        enablerepo: "TSUBASA-local,C7.5*"
+  loop: "{{ sdk }}"
+
+- name: copy SDK rpm files
+  file:
+        path: "/tmp/{{ item | basename}}"
+        state: absent
+  loop: "{{ sdk }}"

@@ -1,0 +1,5 @@
+all:
+        hosts:
+                192.168.0.1:
+        vars:
+                proxy_env:

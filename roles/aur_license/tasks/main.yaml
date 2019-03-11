@@ -1,0 +1,26 @@
+- name: install aurlic-lib
+  environment: "{{ proxy_env }}"
+  yum:
+        name: 
+                - aurlic-lib
+        state: present
+        disablerepo: "*"
+        enablerepo: "veos*"
+
+- name: /opt/nec/aur_license/aur_license.conf
+  lineinfile:
+        path: /opt/nec/aur_license/aur_license.conf
+        regexp: "License_server_host=.*"
+        line: "License_server_host={{ aur_license['License_server_host'] }}"
+        create: true
+        state: present
+
+- name: /opt/nec/aur_license/aur_license.conf
+  lineinfile:
+        path: /opt/nec/aur_license/aur_license.conf
+        regexp: "License_server_port=.*"
+        line: "License_server_port={{ aur_license['License_server_port'] }}"
+        create: true
+        state: present
+
+

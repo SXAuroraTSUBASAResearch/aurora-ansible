@@ -1,0 +1,54 @@
+- name: add C7.5.1804-base
+  environment: "{{ proxy_env }}"
+  yum_repository:
+        file: CentOS-Vault-7.5
+        name: C7.5.1804-base
+        description: CentOS-7.5.1804 - Base
+        baseurl: http://vault.centos.org/7.5.1804/os/$basearch/
+        gpgcheck: 1
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        enabled: 1
+
+- name: add C7.5.1804-updates
+  environment: "{{ proxy_env }}"
+  yum_repository:
+        file: CentOS-Vault-7.5
+        name: C7.5.1804-updates
+        description: CentOS-7.5.1804 - Updates
+        baseurl: http://vault.centos.org/7.5.1804/updates/$basearch/
+        gpgcheck: 1
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        enabled: 1
+
+- name: add C7.5.1804-extras
+  environment: "{{ proxy_env }}"
+  yum_repository:
+        file: CentOS-Vault-7.5
+        name: C7.5.1804-extras
+        description: CentOS-7.5.1804 - Extras
+        baseurl: http://vault.centos.org/7.5.1804/extras/$basearch/
+        gpgcheck: 1
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        enabled: 1
+
+- name: add C7.5.1804-centosplus
+  environment: "{{ proxy_env }}"
+  yum_repository:
+        file: CentOS-Vault-7.5
+        name: C7.5.1804-centosplus
+        description: CentOS-7.5.1804 - CentOSPlus
+        baseurl: http://vault.centos.org/7.5.1804/centosplus/$basearch/
+        gpgcheck: 1
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        enabled: 0
+
+- name: add C7.5.1804-fasttrack
+  environment: "{{ proxy_env }}"
+  yum_repository:
+        file: CentOS-Vault-7.5
+        name: C7.5.1804-fasttrack
+        description: CentOS-7.5.1804 - fasttrack
+        baseurl: http://vault.centos.org/7.5.1804/fasttrack/$basearch/
+        gpgcheck: 1
+        gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+        enabled: 0

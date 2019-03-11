@@ -1,0 +1,7 @@
+- name: install slc repo
+  environment: "{{ proxy_env }}"
+  yum:
+        name: centos-release-scl
+        disablerepo: "*"
+        enablerepo: "C7.5*"
+

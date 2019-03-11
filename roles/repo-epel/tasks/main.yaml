@@ -1,0 +1,7 @@
+- name: install epel repo
+  environment: "{{ proxy_env }}"
+  yum:
+        name: epel-release
+        disablerepo: "*"
+        enablerepo: "C7.5*"
+

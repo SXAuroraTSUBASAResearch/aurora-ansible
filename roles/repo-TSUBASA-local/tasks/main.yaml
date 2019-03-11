@@ -1,0 +1,7 @@
+- name: create TSUBASA-local repo
+  yum_repository:
+        name: TSUBASA-local
+        description: SX-Aurora TSUBASA Software Local Repository
+        baseurl: "{{ repo_TSUBASA_local['baseurl'] }}"
+        gpgcheck: 1
+        enabled: 0
