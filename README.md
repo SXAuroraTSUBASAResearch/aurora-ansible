@@ -72,7 +72,7 @@ license server.
 
 ### aurora-ib.yaml
 
-This playbook installs Mellanox OFED, installs packages in ve-infiniband and
+This playbook installs Mellanox OFED and packages in @ve-infiniband, and then
 setup IB network as described in the installation guide.
 
 Before using this, please download
