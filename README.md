@@ -61,14 +61,14 @@ license server.
                         License_server_host: 192.168.0.2
                         License_server_port: 7300
                 sdk:
-                        - files/sdk/nec-nc++-1.7.21-1.7.21-1.x86_64.rpm
-                        - files/sdk/nec-nc++-2.1.22-2.1.22-1.x86_64.rpm
-                        - files/sdk/nec-nc++-inst-2.1.22-1.noarch.rpm
-                        - files/sdk/nec-nc++-musl-inst-1.7.21-1.noarch.rpm
-                        - files/sdk/nec-nfort-1.7.21-1.7.21-1.x86_64.rpm
-                        - files/sdk/nec-nfort-2.1.22-2.1.22-1.x86_64.rpm
-                        - files/sdk/nec-nfort-inst-2.1.22-1.noarch.rpm
-                        - files/sdk/nec-nfort-musl-inst-1.7.21-1.noarch.rpm
+                        - files/sdk/nec-nc++-1.7.0-1.7.0-1.x86_64.rpm
+                        - files/sdk/nec-nc++-2.1.0-2.1.0-1.x86_64.rpm
+                        - files/sdk/nec-nc++-inst-2.1.0-1.noarch.rpm
+                        - files/sdk/nec-nc++-musl-inst-1.7.0-1.noarch.rpm
+                        - files/sdk/nec-nfort-1.7.0-1.7.0-1.x86_64.rpm
+                        - files/sdk/nec-nfort-2.1.0-2.1.0-1.x86_64.rpm
+                        - files/sdk/nec-nfort-inst-2.1.0-1.noarch.rpm
+                        - files/sdk/nec-nfort-musl-inst-1.7.0-1.noarch.rpm
 ```
 
 ### aurora-ib.yaml
