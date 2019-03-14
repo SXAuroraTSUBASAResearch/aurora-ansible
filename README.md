@@ -49,10 +49,9 @@ The sample playbooks are located in `playbooks` directory.
 ### aurora-sdk.yaml
 
 Before using this playbook, you have to download RPM files for SDK. Please
-refere [the installation
-guide](https://www.hpc.nec/documents/guide/#idm139944214657512) and download
+refere [the installation guide](https://www.hpc.nec/documents/guide/) and download
 required files and list them under `vars:`.  You also have to have lines for
-license server.
+a license server.
 
 ```
 	vars:
@@ -84,7 +83,7 @@ NOTE: Be careful that this playbook is not idempotent.
 
 ### aurora-scatefs.yaml
 
-Setup Aurora as scatefs client. See the installation guide for details.
+Setup the Aurora as a scatefs client. See the installation guide for details.
 
 ```
 	vars:
@@ -107,6 +106,7 @@ Installs packages to support musl.
 
 ## References
 
+- [Aurora Installation Guide](https://www.hpc.nec/documents/guide/) 
 - [VEOS yum Repository on the Web](https://sx-aurora.github.io/posts/VEOS-yum-repository/)
 - [VEOS 2.0.1 glibc Update](https://sx-aurora.github.io/posts/VEOS-2.0.1-update/)
 
