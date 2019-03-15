@@ -107,6 +107,7 @@ Installs packages to support musl.
 ## References
 
 - [Aurora Installation Guide](https://www.hpc.nec/documents/guide/) 
+- [[SX-Aurora TSUBASA]Verified Linux kernel](http://www.support.nec.co.jp/en/View.aspx?id=4140100078)
 - [VEOS yum Repository on the Web](https://sx-aurora.github.io/posts/VEOS-yum-repository/)
 - [VEOS 2.0.1 glibc Update](https://sx-aurora.github.io/posts/VEOS-2.0.1-update/)
 
