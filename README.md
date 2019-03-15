@@ -1,4 +1,4 @@
-# Ansible for Aurora
+# Ansible Scripts for Aurora
 
 This repository includes ansible roles and playbooks to setup Aurora using [VEOS yum Repository on the Web](https://sx-aurora.github.io/posts/VEOS-yum-repository/).
 
