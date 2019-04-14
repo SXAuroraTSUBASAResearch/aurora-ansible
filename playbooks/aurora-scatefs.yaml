@@ -1,0 +1,4 @@
+- hosts: all
+  roles:
+    - roles/aur_license
+    - roles/scatefs-client

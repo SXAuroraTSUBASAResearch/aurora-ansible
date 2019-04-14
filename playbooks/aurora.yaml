@@ -1,0 +1,8 @@
+- hosts: all
+  roles:
+        - roles/repo-yum-vault-7.5
+        - roles/repo-TSUBASA-local
+        - roles/repo-CentOS-Base-disable
+        - roles/kernel-3.10.0-862.14.4
+        - roles/repo-sx-aurora.com
+        - roles/veos

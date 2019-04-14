@@ -1,4 +1,0 @@
-- hosts: all
-  roles:
-        - veos-musl
-        - ve-infiniband-musl
